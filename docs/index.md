@@ -14,3 +14,4 @@ This repository is a template repository for Python projects.
 - [Azure AI Projects client library for Python](https://pypi.org/project/azure-ai-projects/2.0.0b2/)
 - [Azure AI Projects client library for Python - version 2.0.0b2](https://learn.microsoft.com/ja-jp/python/api/overview/azure/ai-projects-readme?view=azure-python-preview)
 - [Microsoft Foundry とは](https://learn.microsoft.com/ja-jp/azure/ai-foundry/what-is-azure-ai-foundry?view=foundry)
+- [Microsoft Foundry for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=TeamsDevApp.vscode-ai-foundry)
