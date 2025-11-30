@@ -19,3 +19,4 @@ This repository is a template repository for Python projects.
 ## Voice Live
 
 - [リアルタイム音声エージェント用の音声ライブ API](https://learn.microsoft.com/ja-jp/azure/ai-services/speech-service/voice-live)
+- [PyAudio](https://github.com/CristiFati/pyaudio)
