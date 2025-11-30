@@ -123,6 +123,63 @@ def workflow(
         logger.info("Conversation deleted")
 
 
+@app.command(
+    help="https://learn.microsoft.com/ja-jp/python/api/overview/azure/ai-projects-readme?view=azure-python-preview&preserve-view=true",
+)
+def agent(
+    name: Annotated[
+        str,
+        typer.Option(
+            "--name",
+            "-n",
+            help="Name of the agent",
+        ),
+    ] = "agent",
+    input: Annotated[
+        str,
+        typer.Option(
+            "--input",
+            "-i",
+            help="Input to the agent",
+        ),
+    ] = "Hello, how are you?",
+    verbose: Annotated[
+        bool,
+        typer.Option("--verbose", "-v", help="Enable verbose output"),
+    ] = False,
+):
+    set_verbose_logging(verbose)
+    logger.info(f"Starting agent: {name}")
+
+    project_client = AIProjectClient(
+        endpoint=getenv("MICROSOFT_FOUNDARY_PROJECT_ENDPOINT"),
+        credential=DefaultAzureCredential(),
+    )
+
+    agent = project_client.agents.get(agent_name=name)
+    print(f"Retrieved agent: {agent.name}")
+
+    openai_client = project_client.get_openai_client()
+
+    # Reference the agent to get a response
+    response = openai_client.responses.create(
+        input=[
+            {
+                "role": "user",
+                "content": input,
+            },
+        ],
+        extra_body={
+            "agent": {
+                "name": agent.name,
+                "type": "agent_reference",
+            }
+        },
+    )
+
+    print(f"Response output: {response.output_text}")
+
+
 if __name__ == "__main__":
     assert load_dotenv(
         override=True,
