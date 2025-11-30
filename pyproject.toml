@@ -57,3 +57,4 @@ environment = { python-version = "3.10" }
 
 [tool.ty.rules]
 invalid-argument-type = "ignore"
+unresolved-attribute = "ignore"
