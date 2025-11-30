@@ -2198,7 +2198,7 @@ wheels = [
 ]
 
 [[package]]
-name = "template-python"
+name = "template-microsoft-foundry"
 version = "0.0.1"
 source = { editable = "." }
 dependencies = [

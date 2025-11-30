@@ -1,3 +1,3 @@
-# template-python
+# template-microsoft-foundry
 
 このリポジトリは、Python プロジェクトのためのテンプレートリポジトリです。
